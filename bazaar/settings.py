@@ -132,7 +132,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = '/requests'
 STATIC_ROOT = 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-DEBUG_PROPAGATE_EXCEPTIONS = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'bazaar/static'),
 ]
