@@ -136,3 +136,6 @@ DEBUG_PROPAGATE_EXCEPTIONS = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'bazaar/static'),
 ]
+
+import django_heroku
+django_heroku.settings(locals())
