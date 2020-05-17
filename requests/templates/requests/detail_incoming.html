@@ -1,0 +1,108 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Bazaar{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 50px; padding-bottom: 30px;">
+	<h1 class="text-condensed mb-4">📬 Incoming Request</h1>
+	<div class="row mb-4">
+		<div class="col">
+			<div class="card">
+				<div class="card-header">
+					<h6 class="text-condensed text-uppercase">Request Status</h6>
+				</div>
+				<div class="card-content">
+					<div class="container my-5">
+						<div class="text-center mb-5">
+							{% if order_request.status == 'DONE' %}
+							<h2 class="text-condensed text-uppercase text-success"><i class="fas fa-check-circle"></i>
+								Done</h2>
+							{% elif order_request.status == 'ACCEPTED' %}
+							<h2 class="text-condensed text-uppercase text-warning"><i class="fas fa-hourglass-half"></i>
+								Accepted</h2>
+							{% elif order_request.status == 'REJECTED' %}
+							<h2 class="text-condensed text-uppercase text-danger"><i class="fas fa-times-circle"></i>
+								Rejected</h2>
+							{% elif order_request.status == 'WITHDRAWN' %}
+							<h2 class="text-condensed text-uppercase text-danger"><i class="fas fa-undo-alt"></i>
+								Withdrawn</h2>
+							{% elif order_request.status == 'PENDING' %}
+							<h2 class="text-condensed text-uppercase"><i class="fas fa-hourglass-start"></i> Pending
+							</h2>
+							{% endif %}
+						</div>
+						<div class="progress">
+							{% if order_request.status == 'PENDING' %}
+							<div class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+							{% elif order_request.status == 'REJECTED' %}
+							<div class="progress-bar bg-danger" role="progressbar" style="width: 0%"></div>
+							{% elif order_request.status == 'WITHDRAWN' %}
+							<div class="progress-bar bg-danger" role="progressbar" style="width: 0%"></div>
+							{% elif order_request.status == 'ACCEPTED' %}
+							<div class="progress-bar bg-success" role="progressbar" style="width: 50%"></div>
+							{% elif order_request.status == 'DONE' %}
+							<div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row mb-4">
+		<div class="col">
+			<div class="card">
+				<div class="row no-gutters">
+					<div class="col-md-5">
+						{% if order_request.address %}
+						<img src="https://maps.googleapis.com/maps/api/staticmap?markers=color:red|{{ order_request.address }}&zoom=15&size=1024x1024&key={{ GOOGLE_MAPS_STATIC_KEY }}"
+							class="card-img" alt="Maps Preview">
+						{% endif %}
+					</div>
+					<div class="col-md-7">
+						<div class="card-body">
+							<h2 class="card-title">{{ order_request.title }}</h2>
+							<h5 class="card-text text-condensed">{{ order_request.address }}</h5>
+							<hr>
+							<h4>By <a href="/accounts/profile/{{ order_request.request_from }}/">{{ order_request.request_from.first_name }}
+									{{ order_request.request_from.last_name }}
+									({{ order_request.request_from }})</a></h4>
+							<h6 class="card-text text-uppercase text-condensed text-secondary"> order_requested On
+								{{ order_request.creation_timestamp }}</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<div class="card mb-4">
+				<div class="card-header">
+					<h6 class="text-condensed text-uppercase">Request Details</h6>
+				</div>
+				<div class="card-body">
+					<h1>{{ order_request.title }}</h1>
+					<div class="alert alert-warning">
+						{{ order_request.order_body|linebreaks }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<a href="/requests" class="btn text-uppercase text-condensed btn-primary"><i class="fas fa-arrow-left"></i>
+				Back</a>
+			{% if order_request.status == 'PENDING' %}
+			<a href="accept" class="btn text-uppercase text-condensed btn-success">👍 Accept</a>
+			<a href="reject" class="btn text-uppercase text-condensed btn-danger">👎 Reject</a>
+			<div class="alert alert-info mt-3">Only accept this order request if you are capable of purchasing the items and
+				delivering them.</div>
+			{% elif order_request.status == 'ACCEPTED' %}
+			<a href="done" class="btn text-uppercase text-condensed btn-success">👍 Mark as Done</a>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

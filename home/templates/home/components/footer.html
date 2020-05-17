@@ -1,0 +1,44 @@
+{% load static %}
+<footer class="page-footer font-small bg-light pt-4 border-top">
+	<div class="container text-center text-md-left">
+		<div class="row">
+			<div class="col-md-6 mt-md-0 my-3">
+				<h5 class="text-uppercase">About Us</h5>
+				<p>Reduce the time you spend going outdoors. Bazaar makes it easy to coordinate purchases with
+					your friends, family, and acquaintances.</p>
+				<hr>
+				<p>Made with <i class="fas fa-heart text-danger"></i> for <img
+						src="{% static 'bazaar/images/ruhacks_logo.svg' %}" style="height: 25px;">.</p>
+			</div>
+			<hr class="clearfix w-100 d-md-none pb-3">
+			<div class="col-md-3 mb-md-0 mb-3">
+				<h5 class="text-uppercase">Service</h5>
+				<ul class="list-unstyled">
+					<li>
+						<a href="/requests">Requests</a>
+					</li>
+					<li>
+						<a href="/accounts/login">Login</a>
+					</li>
+					<li>
+						<a href="/accounts/signup">Signup</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-3 mb-md-0 mb-3">
+				<h5 class="text-uppercase">About</h5>
+				<ul class="list-unstyled">
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/about">About</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copyright text-center text-white py-3" style="background-color: black;">
+		© 2020 Copyright: <a class="text-white" href="/"> Bazaar</a>
+	</div>
+</footer>

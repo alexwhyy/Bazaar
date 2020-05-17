@@ -1,0 +1,48 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}Bazaar{% endblock %}
+
+{% block extra_css %}
+<style>
+	body {
+		background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-bottom: 60px;">
+	<div class="row" style="padding-top: 120px; padding-bottom: 50px;">
+		<div class="col">
+			<img src="{% static 'bazaar/images/icon.svg' %}" style="height: 100px;">
+			<h1 class="display-4 mt-3">Welcome to the Bazaar</h1>
+			<h3 class="text-modern">Reduce the time you spend going outdoors and flatten the curve.</h3>
+			<p>Bazaar makes it easy to coordinate purchases with your friends, family, and acquaintances.</p>
+			<h5>Made with <i class="fas fa-heart text-danger"></i> for <img
+					src="{% static 'bazaar/images/ruhacks_logo.svg' %}" style="height: 20px;"> Ryerson University Hacks.</h5>
+		</div>
+	</div>
+</div>
+<hr>
+<div class="container-fluid">
+	<div class="row my-5">
+		<div class="col-sm-3 text-center mt-4 mt-md-0">
+			<h4 class="text-condensed mb-3">Easily Create New Requests</h4>
+			<img src="{% static 'home/images/create_order.png' %}" style="width: 90%;">
+		</div>
+		<div class="col-sm-3 text-center mt-4 mt-md-0">
+			<h4 class="text-condensed mb-3">An Beautiful Informative Interface</h4>
+			<img src="{% static 'home/images/order_screenshot.png' %}" style="width: 90%;">
+		</div>
+		<div class="col-sm-3 text-center mt-4 mt-md-0">
+			<h4 class="text-condensed mb-3">Easily Accept and Reject Requests</h4>
+			<img src="{% static 'home/images/accept_screenshot.png' %}" style="width: 90%;">
+		</div>
+		<div class="col-sm-3 text-center mt-4 mt-md-0">
+			<h4 class="text-condensed mb-3">Track Your Request at Every Stage</h4>
+			<img src="{% static 'home/images/full_interface.png' %}" style="width: 90%;">
+		</div>
+	</div>
+</div>
+{% endblock %}

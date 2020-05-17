@@ -1,0 +1,18 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Bazaar{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 50px;">
+	<div class="row pb-3 border-bottom">
+		<div class="col">
+			<h5 class=""><i class="fas fa-user-circle"></i> User Profile</h5>
+			<h1 class="text-condensed">{{ user_requested.first_name }} {{ user_requested.last_name }}</h1>
+			<h6 class="text-secondary">{{ user_requested }}</h6>
+			{% if user_requested == user %}
+			<p>This is you!</p>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

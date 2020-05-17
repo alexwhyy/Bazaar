@@ -1,0 +1,29 @@
+{% extends 'home/base.html' %}
+{% load static crispy_forms_tags %}
+
+{% block title %}Bazaar - Signup{% endblock %}
+
+{% block extra_css %}
+<style>
+body {
+	background-color: #f5f5f5;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid mx-auto" style="padding: 100px 0px; max-width: 550px;">
+	<div class="card p-5">
+		<div class="text-center mb-2">
+			<img src="{% static 'bazaar/images/icon.svg' %}" style="height: 100px;">
+			<h1 class="display-4">Bazaar</h1>
+			<h2>User Signup</h2>
+		</div>
+		<form method="post">
+			{% csrf_token %}
+			{{ form|crispy }}
+			<button class="btn btn-success btn-block btn-lg mt-3" type="submit">Signup</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

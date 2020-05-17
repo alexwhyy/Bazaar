@@ -1,0 +1,25 @@
+{% extends 'home/base.html' %}
+{% load static crispy_forms_tags %}
+
+{% block title %}Bazaar - Create Order{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 50px; padding-bottom: 50px;">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="border-bottom">
+				<h1 class="text-condensed">➕ Create an Order</h1>
+				<p>This is your interface where you can place an order to someone you know.</p>
+			</div>
+
+			<div class="pt-4">
+				<form method="post">
+					{% csrf_token %}
+					{{ form|crispy }}
+					<input class="btn btn-block btn-success mt-4" type="submit" value="Submit">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

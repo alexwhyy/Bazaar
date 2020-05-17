@@ -1,0 +1,22 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}Bazaar - About{% endblock %}
+
+{% block extra_css %}
+<style>
+	body {
+		background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 50px;">
+	<div class="row">
+		<div class="col">
+			<h1>Made with <i class="fas fa-heart text-danger"></i> for <img src="{% static 'bazaar/images/ruhacks_logo.svg' %}" style="height: 50px;">.</h1>
+		</div>
+	</div>
+</div>
+{% endblock %}
