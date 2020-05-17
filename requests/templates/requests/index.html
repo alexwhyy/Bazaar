@@ -20,7 +20,7 @@
 			<div class="card shadow mb-4 text-center">
 				<div class="card-body">
 					<h1 class="display-2 text-success"><i class="fas fa-plus-circle"></i></h1>
-					<a href="/requests/create" class="text-success stretched-link">Create Order</a>
+					<a href="/requests/create" class="text-success stretched-link">Request Order</a>
 				</div>
 			</div>
 		</div>
@@ -108,7 +108,7 @@
 					<a href="item/{{ request.pk }}" class="btn text-uppercase btn-sm btn-primary">📓
 						View More</a>
 					{% if request.status == 'PENDING' %}
-					<a href="item/{{ request.pk }}/withdraw" class="btn text-uppercase btn-sm btn-danger">Withdraw</a>
+					<a href="item/{{ request.pk }}/withdraw" class="btn text-uppercase btn-sm btn-danger"><i class="fas fa-undo-alt"></i> Withdraw</a>
 					{% endif %}
 				</div>
 			</div>
